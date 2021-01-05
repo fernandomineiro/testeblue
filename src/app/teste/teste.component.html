@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/reset.css">
+    
+    <link rel="stylesheet" href="/styles.css">
+
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+        <div class="topnav" id="myTopnav">
+            <a href="#home">Controle financeiro</a>
+           
+           
+              <i class="fa fa-bars"></i>
+            
+          </div>
+    </header>
+    <main id="main">
+      
+      <section class="cards">
+        <article id="one">
+          <p>Nova transasão</p><br>
+
+          <label for="country">Tipo de transasão</label>
+          <select [(ngModel)]="data.tipo" id="input" name="country">
+            <option selected value="1">Compra</option>
+            <option value="2">Venda</option>
+          </select>
+      
+            <label for="fname">Nome da mercadoria</label>
+            <input [(ngModel)]="data.nome" type="text" id="input" name="firstname" placeholder="Nome">
+        
+            <label for="lname">Valor</label>
+            <input [(ngModel)]="data.valor" mask="0000,00" type="text" id="input" name="lastname" placeholder="R$ 0,00">
+        
+           
+          
+            <input type="submit" (click)="delete()" id="input" value="Adicionar transasão">
+         
+        </article>
+        <article id="two">
+            <p>Extrato de transasão</p><br>
+            <table>
+                <thead>
+                <tr>
+                    <th>Mercadoria</th>
+                    <th  style="font-weight: 500;text-align: right">Valor</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr *ngFor="let resultados of resultado">
+                    <td>{{resultados.nome}}</td>
+                    <td tyle="color: black; 
+                    font-weight: bold; " id="right">{{resultados.valor}}</td>
+                   
+                </tr>
+             
+                <tr>
+                    <td>Total</td>
+                    <td style="color: black; 
+                    font-weight: bold; " id="right">{{total}}</td>
+                   
+                </tr>
+                </tbody>
+            </table>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
